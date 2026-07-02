@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Semangat untuk Seman</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: Arial, sans-serif;
+}
+
+body{
+    background: linear-gradient(180deg,#0f172a,#1e3a8a,#3b82f6);
+    height:100vh;
+    overflow:hidden;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    color:white;
+}
+
+.card{
+    background: rgba(255,255,255,0.12);
+    backdrop-filter: blur(10px);
+    padding:40px;
+    border-radius:25px;
+    text-align:center;
+    width:80%;
+    max-width:500px;
+    box-shadow:0 0 25px rgba(255,255,255,0.2);
+    z-index:2;
+}
+
+h1{
+    margin-bottom:20px;
+    font-size:35px;
+}
+
+p{
+    font-size:18px;
+    line-height:1.7;
+}
+
+button{
+    margin-top:25px;
+    padding:12px 25px;
+    border:none;
+    border-radius:15px;
+    background:#60a5fa;
+    color:white;
+    font-size:16px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+button:hover{
+    background:#93c5fd;
+    transform:scale(1.05);
+}
+
+/* Animasi Bintang */
+.star{
+    position:absolute;
+    color:white;
+    animation:fall linear infinite;
+    opacity:0.8;
+}
+
+@keyframes fall{
+    from{
+        transform:translateY(-100px);
+    }
+    to{
+        transform:translateY(110vh);
+    }
+}
+</style>
+</head>
+<body>
+
+<div class="card">
+    <h1>✨ Semangat, Seman! ✨</h1>
+    <p id="pesan">
+        Hai Seman! 🌟<br><br>
+        Kalau hari ini terasa berat, jangan lupa kalau kamu sudah sejauh ini karena kamu kuat.
+        Istirahat boleh, tapi jangan menyerah yaa.
+        Masih banyak hal baik yang menunggu di depan. 💙
+    </p>
+
+    <button onclick="ubahPesan()">Pesan Lain</button>
+</div>
+
+<!-- Musik -->
+<audio id="musik" autoplay loop>
+    <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_c8f5a3f4db.mp3?filename=inspiring-corporate-112199.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+function ubahPesan(){
+    document.getElementById("pesan").innerHTML =
+    "Tetap semangat ya, Seman! 🌠<br><br>Jangan terlalu keras sama diri sendiri. Pelan-pelan juga tidak apa-apa, yang penting jangan berhenti melangkah. Kamu pasti bisa! 💙";
+}
+
+// Membuat bintang jatuh
+for(let i=0;i<40;i++){
+    let star = document.createElement("div");
+    star.classList.add("star");
+    star.innerHTML = "✦";
+    star.style.left = Math.random()*100 + "vw";
+    star.style.fontSize = (10 + Math.random()*20) + "px";
+    star.style.animationDuration = (5 + Math.random()*8) + "s";
+    star.style.animationDelay = Math.random()*5 + "s";
+    document.body.appendChild(star);
+}
+</script>
+
+</body>
+</html>
